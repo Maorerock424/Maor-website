@@ -139,6 +139,12 @@ section h2{font-size:clamp(1.8rem,4vw,2.6rem); margin-bottom:1.5rem;}
 .about-media iframe{
   width:100%; aspect-ratio:4/5; border-radius:20px; border:1px solid var(--border); display:block;
 }
+.about-media--video{
+  border:none; background:none;
+}
+.about-media--video video{
+  width:100%; aspect-ratio:9/16; display:block; object-fit:contain;
+}
 .about-media.placeholder{
   aspect-ratio:4/5; border-radius:20px; border:1px dashed var(--border);
   display:flex; align-items:center; justify-content:center; color:var(--text-dim); text-align:center; padding:2rem;
