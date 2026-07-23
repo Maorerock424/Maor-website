@@ -74,53 +74,32 @@ if(heroVisual && window.matchMedia('(pointer:fine)').matches){
   });
 }
 
-/* ---------- Scroll-driven walk video ---------- */
-(function scrollScrub(){
-  const video = document.getElementById('scrubVideo');
-  if(!video) return;
-  const section = document.getElementById('about');
-  let duration = 0, lastSet = -1, lastStamp = 0;
-
-  function initDuration(){ if(video.duration){ duration = video.duration; update(); } }
-  video.addEventListener('loadedmetadata', initDuration);
-  if(video.readyState >= 1) initDuration();
-
-  function progress(){
-    const rect = section.getBoundingClientRect();
-    const vh = window.innerHeight;
-    // 0 when section enters from bottom, 1 when its bottom reaches mid-screen
-    const total = rect.height + vh * 0.5;
-    const passed = vh - rect.top;
-    return Math.min(1, Math.max(0, passed / total));
-  }
-
-  function update(){
-    if(!duration) return;
-    const now = performance.now();
-    if(now - lastStamp < 33) return; // ~30fps throttle
-    lastStamp = now;
-    const t = progress() * (duration - 0.05);
-    if(Math.abs(t - lastSet) > 0.02 && !video.seeking){
-      video.currentTime = t;
-      lastSet = t;
-    }
-  }
-
-  window.addEventListener('scroll', update, {passive: true});
-  window.addEventListener('resize', update);
-})();
-
 /* ---------- Reveal on scroll ---------- */
 const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('in-view');
-      io.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.15});
-revealEls.forEach(el => io.observe(el));
+
+// Safety net: never let content stay invisible if IntersectionObserver
+// fails to fire (some browsers delay/throttle it on background or slow tabs).
+revealEls.forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if(rect.top < window.innerHeight && rect.bottom > 0){
+    el.classList.add('in-view');
+  }
+});
+setTimeout(() => {
+  revealEls.forEach(el => el.classList.add('in-view'));
+}, 1200);
+
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.15});
+  revealEls.forEach(el => io.observe(el));
+}
 
 /* ---------- Services tabs ---------- */
 document.querySelectorAll('.tab-btn').forEach(btn => {

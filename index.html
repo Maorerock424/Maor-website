@@ -7,12 +7,21 @@
 <meta name="description" content="מאור אדרי - Gen AI Creative Director. תוכן קולנועי בבינה מלאכותית, משפיעני AI, סדנאות והרצאות לחברות.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@200;300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <canvas id="bg-canvas"></canvas>
+<svg id="wave-bg" viewBox="0 0 1000 3000" preserveAspectRatio="none" aria-hidden="true">
+  <path class="wave-path" d="M-50,80 C150,20 300,160 500,90 C700,20 850,140 1050,70" />
+  <path class="wave-path" d="M-50,420 C180,500 320,340 520,410 C720,480 860,360 1050,430" />
+  <path class="wave-path" d="M-50,900 C150,840 300,980 500,910 C700,840 850,960 1050,890" />
+  <path class="wave-path" d="M-50,1400 C180,1480 320,1320 520,1390 C720,1460 860,1340 1050,1410" />
+  <path class="wave-path" d="M-50,1900 C150,1840 300,1980 500,1910 C700,1840 850,1960 1050,1890" />
+  <path class="wave-path" d="M-50,2400 C180,2480 320,2320 520,2390 C720,2460 860,2340 1050,2410" />
+  <path class="wave-path" d="M-50,2800 C150,2740 300,2880 500,2810 C700,2740 850,2860 1050,2790" />
+</svg>
 
 <nav id="site-nav">
   <div class="nav-inner">
@@ -73,24 +82,30 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-inner about-grid">
-    <div class="about-media about-media--video reveal">
-      <video id="scrubVideo" src="assets/portfolio/maor-walking-alpha.webm" muted playsinline preload="auto" aria-label="מאור אדרי הולך לכיוון המצלמה"></video>
+  <div class="about-collage">
+    <p class="section-kicker center reveal">עליי</p>
+    <h2 class="about-headline reveal">מותגים לא צריכים<br>עוד תוכן.<br><em>הם צריכים תוכן<br>שנראה אמיתי.</em></h2>
+
+    <div class="collage-media collage-media--main reveal">
+      <div class="about-media about-media--video">
+        <video src="assets/portfolio/maor-walking-clean.mp4" autoplay muted loop playsinline aria-label="מאור אדרי הולך לכיוון המצלמה"></video>
+      </div>
     </div>
-    <div class="about-text reveal">
-      <p class="section-kicker">עליי</p>
-      <h2>מותגים לא צריכים עוד תוכן. הם צריכים תוכן שנראה אמיתי, ממיר, ומתרחב.</h2>
+
+    <p class="collage-quote reveal">"תוכן שממיר, ומתרחב - בלי לאבד זהות."</p>
+
+    <div class="collage-text reveal">
       <p>אני מאור, Gen AI Creative Director, אסטרטג מותג ומרצה, עובד עם מותגים, יזמים וארגונים על הפקת תוכן קולנועי בבינה מלאכותית, בניית משפיעני AI, ובניית מערכות תוכן שמתרחבות בלי לפגוע באיכות.</p>
       <p>לצד עבודה עם לקוחות, אני מריץ סדנאות ותוכניות יצירה בגישת Gen AI לחברות, מכללות וארגונים שרוצים להפיק יותר, מהר יותר, בלי להתפשר על איכות או עקביות מותגית.</p>
-      <p>העבודה שלי מתחילה עוד לפני ההפקה: הגדרת איך המותג צריך להיראות, להרגיש ולתקשר - ואז בניית שפה יצירתית ברורה וחוזרת על פני כל הפלטפורמות.</p>
-      <ul class="about-points">
-        <li>משפיעני AI ודמויות מותג וירטואליות - בנויים להיראות אמיתיים ולהמיר</li>
-        <li>תוכן קולנועי בבינה מלאכותית לפרסומות, סרטים וקמפיינים פרימיום</li>
-        <li>זהות מותג וכיוון ויזואלי</li>
-        <li>מערכות יצירה להפקת תוכן בקנה מידה</li>
-        <li>סדנאות והרצאות Gen AI לחברות וארגונים</li>
-      </ul>
     </div>
+
+    <ul class="about-points reveal">
+      <li>משפיעני AI ודמויות מותג וירטואליות - בנויים להיראות אמיתיים ולהמיר</li>
+      <li>תוכן קולנועי בבינה מלאכותית לפרסומות, סרטים וקמפיינים פרימיום</li>
+      <li>זהות מותג וכיוון ויזואלי</li>
+      <li>מערכות יצירה להפקת תוכן בקנה מידה</li>
+      <li>סדנאות והרצאות Gen AI לחברות וארגונים</li>
+    </ul>
   </div>
 </section>
 
