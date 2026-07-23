@@ -238,8 +238,8 @@ fetch('assets/press/links.txt').then(r => r.ok ? r.text() : Promise.reject()).th
       tile.appendChild(img);
       track.appendChild(tile);
     });
-    buildSet();  // first copy
-    buildSet();  // duplicate for seamless loop
-    // pause animation on hover handled via CSS
+    buildSet();  // copy 1
+    buildSet();  // copy 2
+    buildSet();  // copy 3 — three identical sets so the loop always fills the viewport
   }
 })();
