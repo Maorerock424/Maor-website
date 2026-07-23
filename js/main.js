@@ -192,31 +192,54 @@ fetch('assets/press/links.txt').then(r => r.ok ? r.text() : Promise.reject()).th
     if(!isVimeo){ card.href = item.link; card.target = '_blank'; card.rel = 'noopener'; }
     else card.style.cursor = 'pointer';
     card.innerHTML = `
-      <img src="assets/press/${item.id}.png" alt="${item.title}" onerror="this.style.display='none'">
+      <span class="press-chip"><img src="assets/press/${item.id}.png" alt="${item.title}" onerror="this.parentElement.style.display='none'"></span>
       <h4>${item.title}</h4>
       ${item.quote ? `<p>"${item.quote}"</p>` : ''}
     `;
     if(isVimeo) card.addEventListener('click', () => openLightbox(item.link));
     grid.appendChild(card);
 
+    const chip = document.createElement('span');
+    chip.className = 'logo-tile logo-tile--sm';
     const logo = document.createElement('img');
     logo.src = `assets/press/${item.id}.png`;
     logo.alt = item.title;
-    logo.onerror = () => logo.remove();
-    logoStrip.appendChild(logo);
+    logo.onerror = () => chip.remove();
+    chip.appendChild(logo);
+    logoStrip.appendChild(chip);
   });
 }).catch(() => {});
 
-// Clients — try a fixed range of filenames, silently skip missing ones
+// Clients — probe which logos exist, then build a seamless left-to-right marquee
 (function loadClients(){
-  const grid = document.getElementById('clientsGrid');
-  for(let i = 1; i <= 15; i++){
+  const track = document.getElementById('clientsTrack');
+  if(!track) return;
+  const found = [];
+  let checked = 0, total = 15;
+  for(let i = 1; i <= total; i++){
     const id = 'client-' + String(i).padStart(2, '0');
-    const img = document.createElement('img');
-    img.src = `assets/clients/${id}.png`;
-    img.alt = 'לקוח';
-    img.loading = 'lazy';
-    img.onerror = () => img.remove();
-    grid.appendChild(img);
+    const probe = new Image();
+    probe.onload = () => { found.push(i); settle(); };
+    probe.onerror = () => settle();
+    probe.src = `assets/clients/${id}.png`;
+  }
+  function settle(){
+    if(++checked < total) return;
+    found.sort((a, b) => a - b);
+    if(!found.length) return;
+    const buildSet = () => found.forEach(i => {
+      const id = 'client-' + String(i).padStart(2, '0');
+      const tile = document.createElement('div');
+      tile.className = 'logo-tile';
+      const img = document.createElement('img');
+      img.src = `assets/clients/${id}.png`;
+      img.alt = 'לקוח';
+      img.loading = 'lazy';
+      tile.appendChild(img);
+      track.appendChild(tile);
+    });
+    buildSet();  // first copy
+    buildSet();  // duplicate for seamless loop
+    // pause animation on hover handled via CSS
   }
 })();
