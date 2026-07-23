@@ -253,7 +253,6 @@ fetch('assets/press/links.txt').then(r => r.ok ? r.text() : Promise.reject()).th
       track.appendChild(tile);
     });
     buildSet();  // copy 1
-    buildSet();  // copy 2
-    buildSet();  // copy 3 — three identical sets so the loop always fills the viewport
+    buildSet();  // copy 2 — two identical sets; animate 0 -> -50% for a seamless loop
   }
 })();
