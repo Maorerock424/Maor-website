@@ -210,7 +210,7 @@ fetch('assets/press/links.txt').then(r => r.ok ? r.text() : Promise.reject()).th
 // Clients — try a fixed range of filenames, silently skip missing ones
 (function loadClients(){
   const grid = document.getElementById('clientsGrid');
-  for(let i = 1; i <= 12; i++){
+  for(let i = 1; i <= 15; i++){
     const id = 'client-' + String(i).padStart(2, '0');
     const img = document.createElement('img');
     img.src = `assets/clients/${id}.png`;

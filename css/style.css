@@ -51,10 +51,11 @@ em{font-style:italic; color:var(--gold); font-weight:500;}
 .center{text-align:center; margin-left:auto; margin-right:auto;}
 
 .section-kicker{
-  color:var(--gold); text-transform:uppercase; letter-spacing:.35em;
-  font-size:.75rem; font-weight:600; margin-bottom:1rem;
+  color:var(--gold); letter-spacing:.3em;
+  font-size:clamp(1rem,1.6vw,1.3rem); font-weight:700; margin-bottom:1.25rem;
 }
-section h2{font-size:clamp(2rem,4.2vw,3rem); margin-bottom:1.75rem; line-height:1.2;}
+section h2{font-size:clamp(2.4rem,5vw,3.8rem); margin-bottom:1.75rem; line-height:1.15;}
+.clients-sub{color:var(--text-dim); max-width:52ch; margin-bottom:3rem; font-size:1.1rem;}
 
 /* NAV */
 #site-nav{
@@ -221,14 +222,18 @@ section h2{font-size:clamp(2rem,4.2vw,3rem); margin-bottom:1.75rem; line-height:
 .tab-btn.active{background:var(--gold); color:#100c00; border-color:var(--gold); font-weight:600;}
 .services-panel{display:none;}
 .services-panel.active{display:block;}
-.service-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;}
+.service-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem;}
 .service-card{
-  background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:2rem;
+  background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:2.5rem;
   transition:transform .2s, border-color .2s;
 }
 .service-card:hover{transform:translateY(-4px); border-color:var(--gold);}
-.service-card h3{margin-bottom:.75rem; color:var(--gold);}
-.service-card p{color:var(--text-dim);}
+.service-num{
+  display:block; font-family:var(--font-head); font-weight:900; font-size:1rem;
+  color:var(--gold); letter-spacing:.2em; margin-bottom:1.25rem;
+}
+.service-card h3{margin-bottom:1rem; color:var(--text); font-size:1.35rem; font-weight:700;}
+.service-card p{color:var(--text-dim); line-height:1.7;}
 
 /* PORTFOLIO */
 .portfolio-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;}
