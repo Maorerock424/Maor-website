@@ -16,13 +16,19 @@
 
 <nav id="site-nav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">
-      <img src="assets/logo/logo.png" alt="" onerror="this.style.display='none'">
-      <span class="nav-logo-text">מאור אדרי</span>
+    <a href="#hero" class="nav-name">
+      <span class="nav-name-1">מאור</span>
+      <span class="nav-name-2">אדרי</span>
     </a>
-    <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+    <a href="#hero" class="nav-emblem" aria-label="מאור אדרי">
+      <img src="assets/logo/logo.png" alt="">
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="פתח תפריט" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+  </div>
+  <div class="nav-drawer" id="navDrawer">
+    <button class="nav-drawer-close" id="navClose" aria-label="סגור תפריט">✕</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">עליי</a></li>
       <li><a href="#services">מה אני עושה</a></li>
@@ -32,34 +38,27 @@
       <li><a href="#contact" class="nav-cta">הזמינו הרצאה</a></li>
     </ul>
   </div>
+  <div class="nav-overlay" id="navOverlay"></div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — full-screen cinematic video -->
 <section id="hero">
-  <div class="hero-bg-gradient"></div>
-  <div class="hero-inner">
-    <div class="hero-text reveal">
-      <p class="hero-kicker">Gen AI Master &middot; מרצה &middot; יוצר &middot; אסטרטג</p>
-      <h1>תוכן שנראה אמיתי.<br><em>סמכות</em> שנבנית נכון.</h1>
-      <p class="hero-sub">אני מאור אדרי. אני עוזר לארגונים, מותגים ואנשי מקצוע להוביל בעידן ה-AI - תוכן קולנועי שנראה אמיתי, משפיעני AI שממירים, והדרכות שהופכות צוותים ליצרני-על.</p>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num">5,500+</span><span class="stat-label">עוקבים בלינקדאין</span></div>
-        <div class="stat"><span class="stat-num">30+</span><span class="stat-label">ארגונים ומותגים</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">הופעות בתקשורת</span></div>
-      </div>
-      <div class="hero-cta">
-        <a href="https://wa.me/972502219347" target="_blank" rel="noopener" class="btn btn-primary">הזמינו הרצאה</a>
-        <a href="#portfolio" class="btn btn-ghost">צפו בעבודות</a>
-      </div>
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/photos/hero.jpg">
+    <source src="assets/portfolio/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+  <div class="hero-overlay">
+    <p class="hero-kicker">Gen AI Master &middot; מרצה &middot; יוצר &middot; אסטרטג</p>
+    <h1>תוכן שנראה אמיתי.<br><em>סמכות</em> שנבנית נכון.</h1>
+    <p class="hero-sub">אני עוזר לארגונים, מותגים ואנשי מקצוע להוביל בעידן ה-AI — תוכן קולנועי שנראה אמיתי, משפיעני AI שממירים, והדרכות שהופכות צוותים ליצרני-על.</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/972502219347" target="_blank" rel="noopener" class="btn btn-primary">הזמינו הרצאה</a>
+      <a href="#portfolio" class="btn btn-ghost">צפו בעבודות</a>
     </div>
-    <div class="hero-visual reveal" id="heroVisual">
-      <div class="hero-tilt" id="heroTilt">
-        <div class="hero-media" id="heroMedia">
-          <img src="assets/photos/hero.jpg" alt="מאור אדרי" id="heroImg"
-               onerror="this.parentElement.classList.add('placeholder'); this.remove();">
-          <div class="hero-frame-glow"></div>
-        </div>
-      </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">5,500+</span><span class="stat-label">עוקבים בלינקדאין</span></div>
+      <div class="stat"><span class="stat-num">30+</span><span class="stat-label">ארגונים ומותגים</span></div>
+      <div class="stat"><span class="stat-num">4</span><span class="stat-label">הופעות בתקשורת</span></div>
     </div>
   </div>
   <div class="scroll-hint"><span></span></div>

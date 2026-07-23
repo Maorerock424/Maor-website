@@ -55,9 +55,23 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 });
 const navToggle = document.getElementById('navToggle');
+const navDrawer = document.getElementById('navDrawer');
+const navOverlay = document.getElementById('navOverlay');
+const navClose = document.getElementById('navClose');
 const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+function openDrawer(){
+  navDrawer.classList.add('open'); navOverlay.classList.add('open'); navToggle.classList.add('open');
+  navToggle.setAttribute('aria-expanded','true');
+}
+function closeDrawer(){
+  navDrawer.classList.remove('open'); navOverlay.classList.remove('open'); navToggle.classList.remove('open');
+  navToggle.setAttribute('aria-expanded','false');
+}
+navToggle.addEventListener('click', () => navDrawer.classList.contains('open') ? closeDrawer() : openDrawer());
+navClose.addEventListener('click', closeDrawer);
+navOverlay.addEventListener('click', closeDrawer);
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeDrawer(); });
 
 /* ---------- Hero 3D tilt ---------- */
 const heroVisual = document.getElementById('heroVisual');
