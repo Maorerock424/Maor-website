@@ -152,39 +152,65 @@ section h2{font-size:clamp(2rem,4.2vw,3rem); margin-bottom:1.75rem; line-height:
 .trust-strip{display:flex; flex-wrap:wrap; gap:2.5rem; justify-content:center; align-items:center; opacity:.75;}
 .trust-strip img{height:32px; filter:grayscale(1) brightness(2); opacity:.8;}
 
-/* ABOUT — scattered collage */
+/* ABOUT — full-bleed video left, content right */
 #about{
-  position:relative; background:linear-gradient(180deg, var(--bg) 0%, #0c0f0d 45%, var(--bg) 100%);
-  padding:7rem 0 5rem;
+  position:relative; background:var(--bg); overflow:hidden;
 }
 .about-collage{
-  max-width:1200px; margin:0 auto; padding:0 2rem; position:relative; z-index:1;
-  display:grid; grid-template-columns:repeat(12,1fr); gap:1.5rem;
+  display:grid; grid-template-columns:minmax(0,44%) 1fr; align-items:stretch;
+  min-height:100vh; position:relative; z-index:1;
 }
-.about-headline{
-  grid-column:1/8; font-size:clamp(2.4rem,5vw,4rem); line-height:1.08; margin-bottom:3rem;
-}
+/* video column: full height, flush to the left edge, zero frame */
 .collage-media--main{
-  grid-column:8/13; grid-row:1/4; align-self:start; transform:rotate(2deg);
+  position:relative; align-self:stretch; display:flex; align-items:flex-end; justify-content:center;
+  background:var(--bg);
 }
-.collage-media--main .about-media--video{
-  border-radius:18px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.5);
+.collage-media--main video{
+  width:100%; height:100%; display:block; object-fit:contain; object-position:bottom center; background:var(--bg);
 }
-.collage-media--main .about-media--video video{
-  width:100%; aspect-ratio:3/4; display:block; object-fit:contain; background:var(--bg);
+/* content column */
+.collage-content{
+  display:flex; flex-direction:column; justify-content:center;
+  padding:6rem clamp(2rem,5vw,6rem); gap:0;
+}
+.collage-content .section-kicker{margin-bottom:1.5rem;}
+.about-headline{
+  font-size:clamp(2.6rem,4.6vw,4.6rem); line-height:1.06; margin-bottom:2.5rem;
 }
 .collage-quote{
-  grid-column:1/6; align-self:center; font-family:var(--font-head); font-style:italic; font-weight:500;
-  font-size:clamp(1.3rem,2.2vw,1.8rem); color:var(--gold); line-height:1.4; margin:1rem 0 2rem;
-  transform:rotate(-1deg);
+  font-family:var(--font-head); font-style:italic; font-weight:500;
+  font-size:clamp(1.3rem,2vw,1.9rem); color:var(--gold); line-height:1.4;
+  margin:0 0 2.5rem; padding-inline-start:1.5rem; border-inline-start:3px solid var(--gold);
 }
-.collage-text{grid-column:1/8; margin-top:1rem;}
-.collage-text p{color:var(--text-dim); margin-bottom:1.1rem; max-width:56ch;}
+.collage-text{margin-bottom:2rem;}
+.collage-text p{color:var(--text-dim); margin-bottom:1.1rem; font-size:1.05rem;}
 .about-points{
-  grid-column:1/13; margin-top:2rem; padding-top:2rem; border-top:1px solid var(--border);
-  display:grid; grid-template-columns:repeat(2,1fr); gap:.9rem 3rem; padding-inline-start:1.2rem;
+  margin-top:1rem; padding-top:2rem; border-top:1px solid var(--border);
+  display:flex; flex-direction:column; gap:.85rem; padding-inline-start:1.2rem;
 }
 .about-points li{color:var(--text); position:relative;}
+
+/* GIANT SPLIT STATEMENT */
+#giant-split{
+  display:grid; grid-template-columns:1fr 1fr; position:relative; z-index:1;
+}
+.giant-block{
+  min-height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+  text-decoration:none; text-align:center; padding:3rem 2rem; gap:.5rem;
+  transition:background .4s, color .4s; position:relative; overflow:hidden;
+}
+.giant-block--brands{background:var(--gold); color:#0a0a0a;}
+.giant-block--orgs{background:#111; color:var(--text); border-inline-start:1px solid var(--border);}
+.giant-word{
+  font-family:var(--font-head); font-weight:900; line-height:.92;
+  font-size:clamp(3rem,9vw,8rem); letter-spacing:-.02em; text-transform:uppercase;
+}
+.giant-sub{
+  margin-top:1.5rem; font-size:1.1rem; max-width:34ch; opacity:.85;
+}
+.giant-block--brands:hover{background:#e8c04a;}
+.giant-block--orgs:hover{background:#161616;}
+.giant-block--orgs .giant-word{color:var(--gold);}
 
 /* SERVICES */
 .services-tabs{display:flex; gap:1rem; justify-content:center; margin:2.5rem 0;}
@@ -267,12 +293,13 @@ footer{text-align:center; padding:2rem; color:var(--text-dim); font-size:.85rem;
   .hero-inner{grid-template-columns:1fr; text-align:center;}
   .hero-stats{justify-content:center;}
   .hero-cta{justify-content:center;}
-  .about-collage{grid-template-columns:1fr; text-align:center;}
-  .about-headline,.collage-media--main,.collage-quote,.collage-text,.about-points{
-    grid-column:1/-1; grid-row:auto; transform:none; margin-left:auto; margin-right:auto;
-  }
-  .collage-media--main{max-width:340px;}
+  .about-collage{grid-template-columns:1fr; min-height:auto;}
+  .collage-media--main{aspect-ratio:3/4; max-height:80vh;}
+  .collage-content{padding:3rem 1.5rem;}
   .about-points{grid-template-columns:1fr; text-align:start;}
+  #giant-split{grid-template-columns:1fr;}
+  .giant-block{min-height:48vh;}
+  .giant-block--orgs{border-inline-start:none; border-top:1px solid var(--border);}
   .service-cards{grid-template-columns:1fr;}
   .portfolio-grid{grid-template-columns:repeat(2,1fr);}
   .press-grid{grid-template-columns:1fr;}
