@@ -95,7 +95,7 @@ section h2{font-size:clamp(2.4rem,4.8vw,3.6rem); margin-bottom:1.5rem; line-heig
   display:flex; flex-direction:column; line-height:.92; text-decoration:none;
   color:var(--text); font-family:var(--font-head); font-weight:900; letter-spacing:-.01em;
 }
-.nav-name-1, .nav-name-2{ font-size:clamp(1.5rem,2.3vw,2.3rem); text-shadow:0 2px 20px rgba(0,0,0,.5); }
+.nav-name-1, .nav-name-2{ font-size:clamp(1.7rem,2.6vw,2.6rem); text-shadow:0 2px 20px rgba(0,0,0,.6); }
 .nav-name-2{ color:var(--gold); }
 /* big centered emblem */
 .nav-emblem{
@@ -240,9 +240,11 @@ section h2{font-size:clamp(2.4rem,4.8vw,3.6rem); margin-bottom:1.5rem; line-heig
   font-size:clamp(1.25rem,1.6vw,1.55rem); color:var(--gold); line-height:1.55;
   margin:0; padding-inline-start:1.25rem; border-inline-start:3px solid var(--gold);
 }
-.collage-text{margin:0;}
+.collage-text{margin:0; max-width:52ch;}
 .collage-text p{color:var(--text-dim); margin-bottom:1rem; font-size:1.08rem; line-height:1.8;}
 .collage-text p:last-child{margin-bottom:0;}
+.collage-quote{max-width:48ch;}
+.about-points{max-width:52ch;}
 .about-points{
   margin:.5rem 0 0; padding-top:1.75rem; border-top:1px solid var(--border);
   display:flex; flex-direction:column; gap:.9rem; padding-inline-start:1.4rem;
