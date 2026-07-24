@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -41,12 +41,12 @@
   <div class="nav-overlay" id="navOverlay"></div>
 </nav>
 
-<!-- HERO — full-screen cinematic video only -->
+<!-- HERO — cinematic Vimeo video at natural size -->
 <section id="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="assets/photos/hero.jpg">
-    <source src="assets/portfolio/hero-video-v2.mp4" type="video/mp4">
-  </video>
-  <div class="hero-scrim"></div>
+  <div class="hero-video-wrap">
+    <iframe src="https://player.vimeo.com/video/1212360030?background=1&autoplay=1&loop=1&muted=1&dnt=1"
+            title="מאור אדרי" allow="autoplay; fullscreen" frameborder="0"></iframe>
+  </div>
   <div class="scroll-hint"><span></span></div>
 </section>
 
@@ -80,7 +80,7 @@
     <div class="collage-media collage-media--main reveal">
       <video autoplay muted loop playsinline aria-label="מאור אדרי הולך לכיוון המצלמה">
         <source src="assets/portfolio/maor-walking-v3.webm" type="video/webm">
-        <source src="assets/portfolio/maor-walking-v2.mp4" type="video/mp4">
+        <source src="assets/portfolio/maor-walking-v3.mp4" type="video/mp4">
       </video>
     </div>
     <div class="collage-content">
@@ -201,6 +201,6 @@
   </div>
 </div>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
