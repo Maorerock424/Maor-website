@@ -224,35 +224,27 @@ fetch('assets/press/links.txt').then(r => r.ok ? r.text() : Promise.reject()).th
   });
 }).catch(() => {});
 
-// Clients — probe which logos exist, then build a seamless left-to-right marquee
+// Clients — build all tiles directly (robust, no probe timing), seamless marquee.
+// A tile whose image 404s hides itself; whatever exists always shows.
 (function loadClients(){
   const track = document.getElementById('clientsTrack');
   if(!track) return;
-  const found = [];
-  let checked = 0, total = 15;
-  for(let i = 1; i <= total; i++){
-    const id = 'client-' + String(i).padStart(2, '0');
-    const probe = new Image();
-    probe.onload = () => { found.push(i); settle(); };
-    probe.onerror = () => settle();
-    probe.src = `assets/clients/${id}.png`;
-  }
-  function settle(){
-    if(++checked < total) return;
-    found.sort((a, b) => a - b);
-    if(!found.length) return;
-    const buildSet = () => found.forEach(i => {
-      const id = 'client-' + String(i).padStart(2, '0');
+  const V = '3'; // cache-busting version — forces fresh logo fetches
+  const ids = [];
+  for(let i = 1; i <= 15; i++) ids.push('client-' + String(i).padStart(2, '0'));
+
+  function buildSet(){
+    ids.forEach(id => {
       const tile = document.createElement('div');
       tile.className = 'logo-tile';
       const img = document.createElement('img');
-      img.src = `assets/clients/${id}.png`;
+      img.src = `assets/clients/${id}.png?v=${V}`;
       img.alt = 'לקוח';
-      img.loading = 'lazy';
+      img.onerror = () => tile.remove();
       tile.appendChild(img);
       track.appendChild(tile);
     });
-    buildSet();  // copy 1
-    buildSet();  // copy 2 — two identical sets; animate 0 -> -50% for a seamless loop
   }
+  // three copies so the loop always overflows the viewport and never shows a gap
+  buildSet(); buildSet(); buildSet();
 })();

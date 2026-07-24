@@ -226,24 +226,24 @@ section h2{font-size:clamp(2.4rem,4.8vw,3.6rem); margin-bottom:1.5rem; line-heig
 .collage-media--main video{
   width:100%; height:100%; display:block; object-fit:contain; object-position:bottom center; background:var(--bg);
 }
-/* content column — centered, consistent rhythm, parallel to the video */
+/* content column — premium editorial rhythm, parallel to the video */
 .collage-content{
   display:flex; flex-direction:column; justify-content:center;
-  padding:clamp(4rem,7vh,7rem) clamp(2rem,5vw,6rem); gap:1.6rem;
+  padding:clamp(4rem,7vh,7rem) clamp(2.5rem,5vw,6rem); gap:1.75rem;
 }
-.collage-content .section-kicker{margin-bottom:.25rem; font-size:1.9rem;}
+.collage-content .section-kicker{margin-bottom:.25rem; font-size:1.6rem;}
 .about-headline{
-  font-size:clamp(2.4rem,3.4vw,3.4rem); line-height:1.15; margin:0; font-weight:900;
+  font-size:clamp(2.4rem,3.3vw,3.3rem); line-height:1.16; margin:0; font-weight:900;
 }
 .collage-quote{
-  font-family:var(--font-body); font-style:normal; font-weight:600;
-  font-size:clamp(1.25rem,1.6vw,1.55rem); color:var(--gold); line-height:1.55;
-  margin:0; padding-inline-start:1.25rem; border-inline-start:3px solid var(--gold);
+  font-family:var(--font-body); font-style:normal; font-weight:500;
+  font-size:clamp(1.2rem,1.5vw,1.45rem); color:var(--text); line-height:1.6;
+  margin:0; max-width:50ch;
 }
-.collage-text{margin:0; max-width:52ch;}
-.collage-text p{color:var(--text-dim); margin-bottom:1rem; font-size:1.08rem; line-height:1.8;}
+.collage-quote em, .about-headline em{ font-style:normal; color:var(--gold); }
+.collage-text{margin:0; max-width:50ch;}
+.collage-text p{color:var(--text-dim); margin-bottom:1.05rem; font-size:1.12rem; font-weight:400; line-height:1.85;}
 .collage-text p:last-child{margin-bottom:0;}
-.collage-quote{max-width:48ch;}
 .about-points{max-width:52ch;}
 .about-points{
   margin:.5rem 0 0; padding-top:1.75rem; border-top:1px solid var(--border);
@@ -349,7 +349,7 @@ section h2{font-size:clamp(2.4rem,4.8vw,3.6rem); margin-bottom:1.5rem; line-heig
 .clients-marquee:hover .clients-track{ animation-play-state:paused; }
 @keyframes marquee{
   from{ transform:translateX(0); }
-  to{ transform:translateX(-50%); }
+  to{ transform:translateX(-33.333%); }
 }
 @media (prefers-reduced-motion: reduce){ .clients-track{ animation:none; } }
 
